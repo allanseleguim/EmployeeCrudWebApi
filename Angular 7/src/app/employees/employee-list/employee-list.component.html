@@ -1,0 +1,29 @@
+<table class="table table-hover">
+
+  <label for="searchProduct">Buscar funcionário</label>
+  <input type="text" class="form-control" id="searchProduct" [(ngModel)]="searchBoxTxt" name="searchBoxTxt">
+  <small class="form-text text-muted" *ngIf="!searchBoxTxt">Digite o nome</small>
+
+  <tr *ngFor="let emp of service.list | searchBox: searchBoxTxt  | paginate: { itemsPerPage: 10, currentPage: p } ">
+    <td (click)="populateForm(emp)">[{{ emp.EMPCode }}]-{{ emp.FullName }}</td>
+    <td (click)="populateForm(emp)">{{ emp.Position }}</td>
+    <td (click)="populateForm(emp)">{{ emp.Mobile }}</td>
+    <td>
+
+
+      <button [swal]="{ title: 'Deseja realmente excluir este usuário?'  , showCancelButton: true }"
+        (confirm)="onDelete(emp.EmployeeID)">
+
+        <i class="fa fa-close"></i>
+      </button>
+
+    </td>
+  </tr>
+</table>
+
+<div *ngIf="( service.list | searchBox: searchBoxTxt).length===0" class="text-center">
+  <small>Nenhum funcionário encontrado .. . </small>
+</div>
+
+
+<pagination-controls (pageChange)="p = $event" class="float-right"></pagination-controls>
