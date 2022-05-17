@@ -7,7 +7,7 @@ Fala galerinha blz? Para rodar este projeto é necessário ter instalado:
 VISUAL STUDIO 2019 e seus derivados como .NETFRAMEWORK, pacotes c#, WEB ASPNET
 MS SQL SERVER (Usei a versão 18)
 Visual Studio Code
-Node 17, Angular 13 conforme as versões mais detalhadas indicadas no arquivo package.json
+Node , Angular conforme as versões mais detalhadas indicadas no arquivo package.json
 
 Você vai precisar ter um banco de dados, neste exemplo criei um chamado EmployeeDB, e segui a estrutura da tabela indicada no script de SQL abaixo (você pode ter como referência):
 
